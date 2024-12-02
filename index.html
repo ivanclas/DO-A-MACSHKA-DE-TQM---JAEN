@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doña Maschka - Bienvenido</title>
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Estilos globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            background-color: #007bff;
+            padding: 15px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar ul li a:hover {
+            background-color: #0056b3;
+        }
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .hamburger-menu span {
+            height: 3px;
+            width: 25px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+        /* Dropdown Menu for Mobile */
+        .dropdown-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #007bff;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .dropdown-menu.active {
+            display: flex;
+        }
+        .dropdown-menu li {
+            width: 100%;
+        }
+        .dropdown-menu li a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid #0056b3;
+            text-align: center;
+        }
+        .dropdown-menu li a:hover {
+            background-color: #0056b3;
+        }
+        /* Header */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e9f3ff;
+        }
+        header h1 {
+            font-size: 30px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 18px;
+            color: #555;
+        }
+        /* Secciones */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            color: #007bff;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+        /* Botón Google */
+        .button-google {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #db4437;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            justify-content: center;
+        }
+        .button-google:hover {
+            background-color: #c23321;
+        }
+        .button-google i {
+            font-size: 18px;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e9f3ff;
+            font-size: 14px;
+            color: #666;
+            margin-top: auto;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: flex;
+            }
+            .navbar ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Doña Maschka</div>
+        <div class="hamburger-menu" onclick="toggleDropdown()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="#nosotros"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
+            <li><a href="#mision"><i class="fas fa-bullseye"></i> Misión</a></li>
+            <li><a href="#vision"><i class="fas fa-eye"></i> Visión</a></li>
+            <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+            <li><a href="#catalogo"><i class="fas fa-box"></i> Catálogo</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1 id="welcome-message">Bienvenido a Doña Maschka</h1>
+        <p>Productos de calidad para el bienestar de todos</p>
+    </header>
+
+    <!-- Contenido -->
+    <div class="container">
+        <section id="nosotros" class="section">
+            <h2>Sobre Nosotros</h2>
+            <p>En Doña Maschka, estamos comprometidos con ofrecer productos de calidad que mejoren la vida de nuestros clientes. Con años de experiencia en el mercado, nuestra misión es llevar lo mejor a cada hogar.</p>
+        </section>
+
+        <section id="mision" class="section">
+            <h2>Misión</h2>
+            <p>Nuestra misión es satisfacer las necesidades de nuestros clientes a través de productos innovadores, manteniendo siempre un compromiso con la calidad y el bienestar.</p>
+        </section>
+
+        <section id="vision" class="section">
+            <h2>Visión</h2>
+            <p>Ser reconocidos como una empresa líder en el sector, destacándonos por la calidad de nuestros productos y nuestro compromiso con el bienestar de la comunidad.</p>
+        </section>
+
+        <section id="catalogo" class="section">
+            <h2>Catálogo</h2>
+            <p>Explora nuestros productos y encuentra aquello que necesitas. Haz clic en el botón de abajo para ver nuestro catálogo completo.</p>
+            <a href="catalogo.html" class="button-google">
+                <i class="fas fa-box"></i> Ver Catálogo
+            </a>
+        </section>
+
+        <section id="contacto" class="section">
+            <h2>Contacto</h2>
+            <p>¿Tienes preguntas o quieres saber más sobre nuestros productos? No dudes en contactarnos a través de nuestro correo electrónico o redes sociales.</p>
+            <p>Email: contacto@donamaschka.com</p>
+        </section>
+
+        <!-- Botón de Iniciar Sesión con Google -->
+        <div class="section" style="text-align: center;">
+            <h2>Iniciar Sesión</h2>
+            <p>Inicia sesión con tu cuenta de Google para una experiencia personalizada.</p>
+            <button class="button-google" onclick="signInWithGoogle()">
+                <i class="fab fa-google"></i> Iniciar Sesión con Google
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Doña Maschka. Todos los derechos reservados.
+    </footer>
+
+    <!-- Firebase App (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <!-- Iconos de Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+              const firebaseConfig = {
+  apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
+  authDomain: "machka-8432e.firebaseapp.com",
+  projectId: "machka-8432e",
+  storageBucket: "machka-8432e.appspot.com",
+  messagingSenderId: "421528005263",
+  appId: "1:421528005263:web:df708ddf04377600c55efa",
+  measurementId: "G-89B7M13GTS"
+};
+
+        // Inicializar Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Función para iniciar sesión con Google
+        function signInWithGoogle() {
+            if (confirm("¿Deseas iniciar sesión con Google?")) {
+                const provider = new firebase.auth.GoogleAuthProvider();
+                auth.signInWithPopup(provider)
+                    .then((result) => {
+                        alert("¡Bienvenido, " + result.user.displayName + "!");
+                        // Actualizar el encabezado con el nombre del usuario
+                        const welcomeMessage = document.getElementById('welcome-message');
+                        welcomeMessage.textContent = "Bienvenido, " + result.user.displayName;
+                    })
+                    .catch((error) => {
+                        console.error("Error al iniciar sesión con Google: ", error);
+                    });
+            } else {
+                // El usuario canceló la acción
+                console.log("El usuario canceló el inicio de sesión.");
+            }
+        }
+
+        // Monitorear el estado de autenticación
+        auth.onAuthStateChanged(user => {
+            const welcomeMessage = document.getElementById('welcome-message');
+            if (user) {
+                welcomeMessage.textContent = "Bienvenido, " + user.displayName;
+            } else {
+                welcomeMessage.textContent = "Bienvenido a Doña Maschka";
+            }
+        });
+
+        // Función para togglear el menú en dispositivos móviles
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            const hamburger = document.querySelector('.hamburger-menu');
+            navbar.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+    </script>
+     <script>
+        function toggleDropdown() {
+            const menu = document.querySelector('.dropdown-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
