@@ -109,6 +109,10 @@
         }
         .dropdown-menu li {
             width: 100%;
+            margin-bottom: 10px; /* Espaciado entre elementos */
+        }
+        .dropdown-menu li:last-child {
+            margin-bottom: 0; /* Eliminar margen del último elemento */
         }
         .dropdown-menu li a {
             color: white;
@@ -117,6 +121,8 @@
             font-size: 16px;
             border-bottom: 1px solid #0056b3;
             text-align: center;
+            border-radius: 5px; /* Suavizar bordes */
+            transition: background-color 0.3s;
         }
         .dropdown-menu li a:hover {
             background-color: #0056b3;
@@ -230,6 +236,7 @@
             }
         }
     </style>
+    
     
 </head>
 <body>
