@@ -50,7 +50,6 @@
             width: 100%;
             background-color: #a0522d; /* Marrón oscuro para la barra de navegación */
             padding: 15px 20px;
-            /* Eliminamos el box-shadow */
             position: relative;
             display: flex;
             justify-content: space-between;
@@ -73,7 +72,6 @@
             font-size: 14px;
             padding: 8px 12px;
             border-radius: 5px;
-            /* Eliminamos el hover de cambio de color a azul */
         }
         .navbar-menu li a:hover {
             background-color: #8b4513; /* Un tono más oscuro de marrón */
@@ -169,23 +167,28 @@
             padding: 20px;
             margin: 20px 0;
             border-radius: 12px;
-            /* Eliminamos el box-shadow */
         }
         .section h2 {
             color: #a0522d; /* Marrón oscuro */
             font-size: 22px;
             margin-bottom: 15px;
+            text-align: center;
         }
         .section p {
             font-size: 16px;
             line-height: 1.6;
             color: #555;
+            text-align: center;
         }
         .section img {
             width: 100%;
+            max-width: 400px; /* Establece un ancho máximo para las imágenes */
             height: auto;
             border-radius: 12px;
             margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         /* Botón Google */
         .button-google {
@@ -203,7 +206,6 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
-            /* Eliminamos el box-shadow */
             justify-content: center;
         }
         .button-google:hover {
@@ -236,9 +238,6 @@
             }
         }
     </style>
-    
-    
-    
 </head>
 <body>
 
@@ -334,16 +333,15 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <script>
-             const firebaseConfig = {
-  apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
-  authDomain: "machka-8432e.firebaseapp.com",
-  projectId: "machka-8432e",
-  storageBucket: "machka-8432e.appspot.com",
-  messagingSenderId: "421528005263",
-  appId: "1:421528005263:web:df708ddf04377600c55efa",
-  measurementId: "G-89B7M13GTS"
-};
-
+        const firebaseConfig = {
+            apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
+            authDomain: "machka-8432e.firebaseapp.com",
+            projectId: "machka-8432e",
+            storageBucket: "machka-8432e.appspot.com",
+            messagingSenderId: "421528005263",
+            appId: "1:421528005263:web:df708ddf04377600c55efa",
+            measurementId: "G-89B7M13GTS"
+        };
 
         // Inicializar Firebase
         firebase.initializeApp(firebaseConfig);
