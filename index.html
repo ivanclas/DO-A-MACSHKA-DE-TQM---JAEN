@@ -18,9 +18,32 @@
             font-family: Arial, sans-serif;
             background-color: #f7f9fc;
             color: #333;
+            min-height: 100vh;
+        }
+        /* Ocultar contenido principal hasta que el usuario inicie sesión */
+        #main-content {
+            display: none;
+        }
+        /* Sign-in Screen */
+        #sign-in-screen {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #e9f3ff;
+            text-align: center;
+            padding: 20px;
+        }
+        #sign-in-screen h1 {
+            font-size: 36px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        #sign-in-screen p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
         }
         /* Navbar */
         .navbar {
@@ -102,16 +125,32 @@
         header {
             text-align: center;
             padding: 50px 20px;
-            background-color: #e9f3ff;
+            background-image: url('ruta-de-tu-imagen-header.jpg'); /* Añade la ruta de tu imagen de encabezado */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 123, 255, 0.7); /* Overlay para mejorar la legibilidad */
+            z-index: 1;
+        }
+        header h1, header p {
+            position: relative;
+            z-index: 2;
         }
         header h1 {
-            font-size: 30px;
-            color: #007bff;
+            font-size: 36px;
             margin-bottom: 10px;
         }
         header p {
-            font-size: 18px;
-            color: #555;
+            font-size: 20px;
         }
         /* Secciones */
         .container {
@@ -136,6 +175,12 @@
             line-height: 1.6;
             color: #555;
         }
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
         /* Botón Google */
         .button-google {
             display: inline-flex;
@@ -153,7 +198,6 @@
             font-weight: bold;
             margin-top: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
             justify-content: center;
         }
         .button-google:hover {
@@ -184,74 +228,90 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">Doña Maschka</div>
-        <div class="hamburger-menu" onclick="toggleDropdown()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="dropdown-menu">
-            <li><a href="#nosotros"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
-            <li><a href="#mision"><i class="fas fa-bullseye"></i> Misión</a></li>
-            <li><a href="#vision"><i class="fas fa-eye"></i> Visión</a></li>
-            <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
-            <li><a href="#catalogo"><i class="fas fa-box"></i> Catálogo</a></li>
-        </ul>
-    </nav>
-
-    <!-- Header -->
-    <header>
-        <h1 id="welcome-message">Bienvenido a Doña Maschka</h1>
-        <p>Productos de calidad para el bienestar de todos</p>
-    </header>
-
-    <!-- Contenido -->
-    <div class="container">
-        <section id="nosotros" class="section">
-            <h2>Sobre Nosotros</h2>
-            <p>En Doña Maschka, estamos comprometidos con ofrecer productos de calidad que mejoren la vida de nuestros clientes. Con años de experiencia en el mercado, nuestra misión es llevar lo mejor a cada hogar.</p>
-        </section>
-
-        <section id="mision" class="section">
-            <h2>Misión</h2>
-            <p>Nuestra misión es satisfacer las necesidades de nuestros clientes a través de productos innovadores, manteniendo siempre un compromiso con la calidad y el bienestar.</p>
-        </section>
-
-        <section id="vision" class="section">
-            <h2>Visión</h2>
-            <p>Ser reconocidos como una empresa líder en el sector, destacándonos por la calidad de nuestros productos y nuestro compromiso con el bienestar de la comunidad.</p>
-        </section>
-
-        <section id="catalogo" class="section">
-            <h2>Catálogo</h2>
-            <p>Explora nuestros productos y encuentra aquello que necesitas. Haz clic en el botón de abajo para ver nuestro catálogo completo.</p>
-            <a href="catalogo.html" class="button-google">
-                <i class="fas fa-box"></i> Ver Catálogo
-            </a>
-        </section>
-
-        <section id="contacto" class="section">
-            <h2>Contacto</h2>
-            <p>¿Tienes preguntas o quieres saber más sobre nuestros productos? No dudes en contactarnos a través de nuestro correo electrónico o redes sociales.</p>
-            <p>Email: contacto@donamaschka.com</p>
-        </section>
-
-        <!-- Botón de Iniciar Sesión con Google -->
-        <div class="section" style="text-align: center;">
-            <h2>Iniciar Sesión</h2>
-            <p>Inicia sesión con tu cuenta de Google para una experiencia personalizada.</p>
-            <button class="button-google" onclick="signInWithGoogle()">
-                <i class="fab fa-google"></i> Iniciar Sesión con Google
-            </button>
-        </div>
+    <!-- Sign-in Screen -->
+    <div id="sign-in-screen">
+        <h1>Bienvenido a Doña Maschka</h1>
+        <p>Por favor, inicia sesión con Google para continuar.</p>
+        <button class="button-google" onclick="signInWithGoogle()">
+            <i class="fab fa-google"></i> Iniciar Sesión con Google
+        </button>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2024 Doña Maschka. Todos los derechos reservados.
-    </footer>
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">Doña Maschka</div>
+            <div class="hamburger-menu" onclick="toggleDropdown()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="dropdown-menu">
+                <li><a href="#nosotros"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
+                <li><a href="#mision"><i class="fas fa-bullseye"></i> Misión</a></li>
+                <li><a href="#vision"><i class="fas fa-eye"></i> Visión</a></li>
+                <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+                <li><a href="#catalogo"><i class="fas fa-box"></i> Catálogo</a></li>
+            </ul>
+            <!-- Menú normal para computadoras -->
+            <ul class="navbar-menu">
+                <li><a href="#nosotros"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
+                <li><a href="#mision"><i class="fas fa-bullseye"></i> Misión</a></li>
+                <li><a href="#vision"><i class="fas fa-eye"></i> Visión</a></li>
+                <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+                <li><a href="#catalogo"><i class="fas fa-box"></i> Catálogo</a></li>
+            </ul>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <h1 id="welcome-message">Bienvenido</h1>
+            <p>Productos de calidad para el bienestar de todos</p>
+        </header>
+
+        <!-- Contenido -->
+        <div class="container">
+            <section id="nosotros" class="section">
+                <h2>Sobre Nosotros</h2>
+                <img src="ruta-de-tu-imagen-sobre-nosotros.jpg" alt="Sobre Nosotros">
+                <p>En Doña Maschka, estamos comprometidos con ofrecer productos de calidad que mejoren la vida de nuestros clientes. Con años de experiencia en el mercado, nuestra misión es llevar lo mejor a cada hogar.</p>
+            </section>
+
+            <section id="mision" class="section">
+                <h2>Misión</h2>
+                <img src="ruta-de-tu-imagen-mision.jpg" alt="Nuestra Misión">
+                <p>Nuestra misión es satisfacer las necesidades de nuestros clientes a través de productos innovadores, manteniendo siempre un compromiso con la calidad y el bienestar.</p>
+            </section>
+
+            <section id="vision" class="section">
+                <h2>Visión</h2>
+                <img src="ruta-de-tu-imagen-vision.jpg" alt="Nuestra Visión">
+                <p>Ser reconocidos como una empresa líder en el sector, destacándonos por la calidad de nuestros productos y nuestro compromiso con el bienestar de la comunidad.</p>
+            </section>
+
+            <section id="catalogo" class="section">
+                <h2>Catálogo</h2>
+                <img src="ruta-de-tu-imagen-catalogo.jpg" alt="Catálogo de Productos">
+                <p>Explora nuestros productos y encuentra aquello que necesitas. Haz clic en el botón de abajo para ver nuestro catálogo completo.</p>
+                <a href="catalogo.html" class="button-google">
+                    <i class="fas fa-box"></i> Ver Catálogo
+                </a>
+            </section>
+
+            <section id="contacto" class="section">
+                <h2>Contacto</h2>
+                <img src="ruta-de-tu-imagen-contacto.jpg" alt="Contacto">
+                <p>¿Tienes preguntas o quieres saber más sobre nuestros productos? No dudes en contactarnos a través de nuestro correo electrónico o redes sociales.</p>
+                <p>Email: contacto@donamaschka.com</p>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2024 Doña Maschka. Todos los derechos reservados.
+        </footer>
+    </div>
 
     <!-- Firebase App (Compat) -->
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
@@ -260,7 +320,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <script>
-              const firebaseConfig = {
+             const firebaseConfig = {
   apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
   authDomain: "machka-8432e.firebaseapp.com",
   projectId: "machka-8432e",
@@ -270,49 +330,44 @@
   measurementId: "G-89B7M13GTS"
 };
 
+
         // Inicializar Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
 
         // Función para iniciar sesión con Google
         function signInWithGoogle() {
-            if (confirm("¿Deseas iniciar sesión con Google?")) {
-                const provider = new firebase.auth.GoogleAuthProvider();
-                auth.signInWithPopup(provider)
-                    .then((result) => {
-                        alert("¡Bienvenido, " + result.user.displayName + "!");
-                        // Actualizar el encabezado con el nombre del usuario
-                        const welcomeMessage = document.getElementById('welcome-message');
-                        welcomeMessage.textContent = "Bienvenido, " + result.user.displayName;
-                    })
-                    .catch((error) => {
-                        console.error("Error al iniciar sesión con Google: ", error);
-                    });
-            } else {
-                // El usuario canceló la acción
-                console.log("El usuario canceló el inicio de sesión.");
-            }
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    // Ocultar la pantalla de inicio de sesión y mostrar el contenido principal
+                    document.getElementById('sign-in-screen').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                    // Actualizar el encabezado con el nombre del usuario
+                    const welcomeMessage = document.getElementById('welcome-message');
+                    welcomeMessage.textContent = "Bienvenido, " + result.user.displayName;
+                })
+                .catch((error) => {
+                    console.error("Error al iniciar sesión con Google: ", error);
+                });
         }
 
         // Monitorear el estado de autenticación
         auth.onAuthStateChanged(user => {
-            const welcomeMessage = document.getElementById('welcome-message');
             if (user) {
+                // Usuario ha iniciado sesión
+                document.getElementById('sign-in-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                const welcomeMessage = document.getElementById('welcome-message');
                 welcomeMessage.textContent = "Bienvenido, " + user.displayName;
             } else {
-                welcomeMessage.textContent = "Bienvenido a Doña Maschka";
+                // Usuario no ha iniciado sesión
+                document.getElementById('sign-in-screen').style.display = 'flex';
+                document.getElementById('main-content').style.display = 'none';
             }
         });
 
         // Función para togglear el menú en dispositivos móviles
-        function toggleMenu() {
-            const navbar = document.querySelector('.navbar');
-            const hamburger = document.querySelector('.hamburger-menu');
-            navbar.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        }
-    </script>
-     <script>
         function toggleDropdown() {
             const menu = document.querySelector('.dropdown-menu');
             menu.classList.toggle('active');
