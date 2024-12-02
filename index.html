@@ -16,7 +16,7 @@
         }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f9fc;
+            background-color: #f7f3e9; /* Fondo de página en marrón claro */
             color: #333;
             min-height: 100vh;
         }
@@ -31,13 +31,13 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #e9f3ff;
+            background-color: #f5e8d8; /* Fondo de pantalla de inicio de sesión */
             text-align: center;
             padding: 20px;
         }
         #sign-in-screen h1 {
             font-size: 36px;
-            color: #007bff;
+            color: #a0522d; /* Marrón oscuro */
             margin-bottom: 20px;
         }
         #sign-in-screen p {
@@ -48,9 +48,9 @@
         /* Navbar */
         .navbar {
             width: 100%;
-            background-color: #007bff;
+            background-color: #a0522d; /* Marrón oscuro para la barra de navegación */
             padding: 15px 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Eliminamos el box-shadow */
             position: relative;
             display: flex;
             justify-content: space-between;
@@ -73,10 +73,10 @@
             font-size: 14px;
             padding: 8px 12px;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            /* Eliminamos el hover de cambio de color a azul */
         }
         .navbar-menu li a:hover {
-            background-color: #0056b3;
+            background-color: #8b4513; /* Un tono más oscuro de marrón */
         }
         /* Hamburger Menu */
         .hamburger-menu {
@@ -96,7 +96,7 @@
         .dropdown-menu {
             display: none;
             flex-direction: column;
-            background-color: #007bff;
+            background-color: #a0522d; /* Mismo marrón oscuro */
             position: absolute;
             top: 100%;
             left: 0;
@@ -109,23 +109,23 @@
         }
         .dropdown-menu li {
             width: 100%;
-            margin-bottom: 10px; /* Espaciado entre elementos */
+            margin-bottom: 10px;
         }
         .dropdown-menu li:last-child {
-            margin-bottom: 0; /* Eliminar margen del último elemento */
+            margin-bottom: 0;
         }
         .dropdown-menu li a {
             color: white;
             padding: 12px 20px;
             text-decoration: none;
             font-size: 16px;
-            border-bottom: 1px solid #0056b3;
+            border-bottom: 1px solid #8b4513; /* Tono más oscuro */
             text-align: center;
-            border-radius: 5px; /* Suavizar bordes */
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
         .dropdown-menu li a:hover {
-            background-color: #0056b3;
+            background-color: #8b4513;
         }
         /* Header */
         header {
@@ -144,7 +144,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 123, 255, 0.7); /* Overlay para mejorar la legibilidad */
+            background-color: rgba(165, 42, 42, 0.7); /* Overlay marrón oscuro */
             z-index: 1;
         }
         header h1, header p {
@@ -165,14 +165,14 @@
             padding: 20px;
         }
         .section {
-            background-color: #fff;
+            background-color: #fffaf0; /* Fondo crema claro */
             padding: 20px;
             margin: 20px 0;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Eliminamos el box-shadow */
         }
         .section h2 {
-            color: #007bff;
+            color: #a0522d; /* Marrón oscuro */
             font-size: 22px;
             margin-bottom: 15px;
         }
@@ -203,7 +203,7 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Eliminamos el box-shadow */
             justify-content: center;
         }
         .button-google:hover {
@@ -216,7 +216,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #e9f3ff;
+            background-color: #f5e8d8; /* Fondo del footer */
             font-size: 14px;
             color: #666;
             margin-top: auto;
@@ -224,18 +224,19 @@
         /* Responsive */
         @media (max-width: 768px) {
             .navbar-menu {
-                display: none; /* Ocultar menú de escritorio en dispositivos móviles */
+                display: none;
             }
             .hamburger-menu {
-                display: flex; /* Mostrar menú hamburguesa */
+                display: flex;
             }
         }
         @media (min-width: 769px) {
             .dropdown-menu {
-                display: none; /* Asegurar que el menú hamburguesa esté oculto en escritorio */
+                display: none;
             }
         }
     </style>
+    
     
     
 </head>
