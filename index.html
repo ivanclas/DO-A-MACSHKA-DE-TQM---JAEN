@@ -88,7 +88,6 @@
             width: 25px;
             background-color: white;
             margin: 4px 0;
-            transition: 0.4s;
         }
         /* Dropdown Menu for Mobile */
         .dropdown-menu {
@@ -99,7 +98,7 @@
             top: 100%;
             left: 0;
             width: 100%;
-            padding: 10px 0;
+            padding: 0;
             z-index: 1000;
         }
         .dropdown-menu.active {
@@ -107,20 +106,22 @@
         }
         .dropdown-menu li {
             width: 100%;
-            margin-bottom: 10px;
-        }
-        .dropdown-menu li:last-child {
-            margin-bottom: 0;
         }
         .dropdown-menu li a {
+            display: block;
             color: white;
-            padding: 12px 20px;
+            padding: 15px 20px;
             text-decoration: none;
             font-size: 16px;
-            border-bottom: 1px solid #8b4513; /* Tono más oscuro */
             text-align: center;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-top: 1px solid #8b4513;
+            border-bottom: 1px solid #8b4513;
+        }
+        .dropdown-menu li:first-child a {
+            border-top: none;
+        }
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
         }
         .dropdown-menu li a:hover {
             background-color: #8b4513;
@@ -202,7 +203,6 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
@@ -260,15 +260,16 @@
                 <span></span>
                 <span></span>
             </div>
-            <ul class="dropdown-menu">
+            <!-- Menú normal para computadoras -->
+            <ul class="navbar-menu">
                 <li><a href="#nosotros"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
                 <li><a href="#mision"><i class="fas fa-bullseye"></i> Misión</a></li>
                 <li><a href="#vision"><i class="fas fa-eye"></i> Visión</a></li>
                 <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
                 <li><a href="#catalogo"><i class="fas fa-box"></i> Catálogo</a></li>
             </ul>
-            <!-- Menú normal para computadoras -->
-            <ul class="navbar-menu">
+            <!-- Menú desplegable para móviles -->
+            <ul class="dropdown-menu">
                 <li><a href="#nosotros"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
                 <li><a href="#mision"><i class="fas fa-bullseye"></i> Misión</a></li>
                 <li><a href="#vision"><i class="fas fa-eye"></i> Visión</a></li>
@@ -333,15 +334,15 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
-            authDomain: "machka-8432e.firebaseapp.com",
-            projectId: "machka-8432e",
-            storageBucket: "machka-8432e.appspot.com",
-            messagingSenderId: "421528005263",
-            appId: "1:421528005263:web:df708ddf04377600c55efa",
-            measurementId: "G-89B7M13GTS"
-        };
+                  const firebaseConfig = {
+  apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
+  authDomain: "machka-8432e.firebaseapp.com",
+  projectId: "machka-8432e",
+  storageBucket: "machka-8432e.appspot.com",
+  messagingSenderId: "421528005263",
+  appId: "1:421528005263:web:df708ddf04377600c55efa",
+  measurementId: "G-89B7M13GTS"
+};
 
         // Inicializar Firebase
         firebase.initializeApp(firebaseConfig);
