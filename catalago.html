@@ -11,449 +11,465 @@
 
     <style>
         /* Estilos globales */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f7f3e9; /* Fondo de página en marrón claro */
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            color: #333;
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f3e9; /* Fondo de página en marrón claro */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    color: #333;
+}
 
-        /* Estilos del mensaje de bienvenida */
-        #welcome-message {
-            font-size: 20px;
-            color: #a0522d;
-            margin-bottom: 15px;
-            text-align: center;
-        }
+/* Estilos del mensaje de bienvenida */
+#welcome-message {
+    font-size: 20px;
+    color: #a0522d;
+    margin-bottom: 15px;
+    text-align: center;
+}
 
-        /* Resto de estilos existentes */
-        /* ... [el resto de los estilos existentes, como en tu código original] ... */
+/* Estilos del encabezado */
+.header h1 {
+    font-size: 32px;
+    color: #a0522d; /* Marrón oscuro */
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin-bottom: 25px;
+}
 
-        /* Asegúrate de incluir todos los estilos anteriores aquí */
-        /* Incluyo los estilos completos para tu referencia */
+/* Estilos del buscador */
+#searchContainer {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
 
-        h1 {
-            font-size: 32px;
-            color: #a0522d; /* Marrón oscuro */
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-align: center;
-            margin-bottom: 25px;
-        }
+#searchInput {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
 
-        #searchContainer {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-        }
+#searchInput:focus {
+    border-color: #a0522d; /* Marrón oscuro */
+    outline: none;
+    box-shadow: inset 0 0 8px rgba(160, 82, 45, 0.5);
+}
 
-        #searchInput {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            font-size: 16px;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
+/* Contenedor del catálogo */
+#catalogContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+}
 
-        #searchInput:focus {
-            border-color: #a0522d; /* Marrón oscuro */
-            outline: none;
-            box-shadow: inset 0 0 8px rgba(160, 82, 45, 0.5);
-        }
+/* Elementos del catálogo */
+.catalog-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        #catalogContainer {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 600px;
-        }
+.catalog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
 
-        .catalog-item {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.catalog-details {
+    padding: 15px;
+    text-align: center;
+}
 
-        .catalog-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+.catalog-details h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #a0522d; /* Marrón oscuro */
+}
 
-        .catalog-details {
-            padding: 15px;
-            text-align: center;
-        }
+.catalog-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #777;
+}
 
-        .catalog-details h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #a0522d; /* Marrón oscuro */
-        }
+/* Botones del catálogo */
+.add-to-cart-btn,
+.share-btn,
+.view-details-btn {
+    background-color: #a0522d; /* Marrón oscuro */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 90%;
+    margin-top: 10px;
+}
 
-        .catalog-details p {
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: #777;
-        }
+.add-to-cart-btn:hover,
+.share-btn:hover,
+.view-details-btn:hover {
+    background-color: #8b4513; /* Tono más oscuro */
+}
 
-        .add-to-cart-btn, .share-btn, .view-details-btn {
-            background-color: #a0522d; /* Marrón oscuro */
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 14px;
-            width: 90%;
-            margin-top: 10px;
-        }
+/* Botones flotantes */
+#cartButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #D2B48C; /* Marrón clarito */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
 
-        .add-to-cart-btn:hover, .share-btn:hover, .view-details-btn:hover {
-            background-color: #8b4513; /* Tono más oscuro */
-        }
+#cartButton:hover {
+    transform: scale(1.1);
+}
 
-        /* Botones flotantes */
-        #cartButton {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #D2B48C; /* Marrón clarito */
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            z-index: 100;
-        }
+#whatsappButton {
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
 
-        #cartButton:hover {
-            transform: scale(1.1);
-        }
+#whatsappButton:hover {
+    transform: scale(1.1);
+}
 
-        #whatsappButton {
-            position: fixed;
-            bottom: 85px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            z-index: 100;
-        }
+#cartButtonNotification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
 
-        #whatsappButton:hover {
-            transform: scale(1.1);
-        }
+/* Modales */
+#cartModal,
+#productModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
 
-        #cartButtonNotification {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
+#cartModal.show,
+#productModal.show {
+    display: flex;
+}
 
-        /* Modales */
-        #cartModal, #productModal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
+#cartModalContent,
+.product-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 85%;
+    max-width: 400px;
+    overflow-y: auto;
+    position: relative;
+    max-height: 80%;
+    margin: 20px auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para el modal */
+    animation: fadeIn 0.3s ease; /* Animación al aparecer */
+}
 
-        #cartModal.show, #productModal.show {
-            display: flex;
-        }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        #cartModalContent, .product-modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            width: 85%;
-            max-width: 400px;
-            overflow-y: auto;
-            position: relative;
-            max-height: 80%;
-            margin: 20px auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra para el modal */
-            animation: fadeIn 0.3s ease; /* Animación al aparecer */
-        }
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #777;
+    transition: color 0.3s ease;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.close-btn:hover {
+    color: #a0522d;
+}
 
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #777;
-            transition: color 0.3s ease;
-        }
+/* Estilos del modal de producto */
+.product-modal-content {
+    text-align: center;
+}
 
-        .close-btn:hover {
-            color: #a0522d;
-        }
+.product-modal-content img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-        /* Estilos del modal de producto mejorados */
-        .product-modal-content {
-            text-align: center;
-        }
+.product-modal-content h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #a0522d;
+}
 
-        .product-modal-content img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+.product-modal-content p {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #555;
+}
 
-        .product-modal-content h3 {
-            font-size: 26px;
-            margin-bottom: 10px;
-            color: #a0522d;
-        }
+.product-modal-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
 
-        .product-modal-content p {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #555;
-        }
+.product-modal-content ul li {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+}
 
-        .product-modal-content ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
+.product-modal-content .modal-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
 
-        .product-modal-content ul li {
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: #555;
-        }
+.product-modal-content .modal-buttons button {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        .product-modal-content .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
+.product-modal-content .modal-buttons .add-to-cart-btn {
+    background-color: #a0522d;
+    color: white;
+}
 
-        .product-modal-content .modal-buttons button {
-            width: 80%;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.product-modal-content .modal-buttons .add-to-cart-btn:hover {
+    background-color: #8b4513;
+}
 
-        .product-modal-content .modal-buttons .add-to-cart-btn {
-            background-color: #a0522d;
-            color: white;
-        }
+.product-modal-content .modal-buttons .share-btn {
+    background-color: #25D366;
+    color: white;
+}
 
-        .product-modal-content .modal-buttons .add-to-cart-btn:hover {
-            background-color: #8b4513;
-        }
+.product-modal-content .modal-buttons .share-btn:hover {
+    background-color: #1EBE5A;
+}
 
-        .product-modal-content .modal-buttons .share-btn {
-            background-color: #25D366;
-            color: white;
-        }
+/* Estilos del carrito */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
 
-        .product-modal-content .modal-buttons .share-btn:hover {
-            background-color: #1EBE5A;
-        }
+.cart-item:last-child {
+    border-bottom: none;
+}
 
-        /* Estilos del carrito */
-        .cart-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-        }
+.cart-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+}
 
-        .cart-item:last-child {
-            border-bottom: none;
-        }
+.cart-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        .cart-image {
-            width: 70px;
-            height: 70px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
+.cart-details h4 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
 
-        .cart-details {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.cart-details p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #777;
+}
 
-        .cart-details h4 {
-            font-size: 18px;
-            margin: 0;
-            color: #333;
-        }
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
 
-        .cart-details p {
-            font-size: 16px;
-            margin: 5px 0;
-            color: #777;
-        }
+.quantity-btn {
+    background-color: #a0522d; /* Marrón oscuro */
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    cursor: pointer;
+}
 
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
-        }
+.quantity-btn:hover {
+    background-color: #8b4513;
+}
 
-        .quantity-btn {
-            background-color: #a0522d; /* Marrón oscuro */
-            border: none;
-            color: white;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+.remove-btn {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
 
-        .quantity-btn:hover {
-            background-color: #8b4513;
-        }
+.remove-btn:hover {
+    background-color: #e60000;
+}
 
-        .remove-btn {
-            background-color: #ff4d4d;
-            border: none;
-            color: white;
-            border-radius: 8px;
-            padding: 8px 15px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+#totalPrice {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+}
 
-        .remove-btn:hover {
-            background-color: #e60000;
-        }
+#cartModalContent h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
 
-        #totalPrice {
-            margin-top: 15px;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: right;
-        }
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
 
-        #cartModalContent h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
+.whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 17px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
 
-        .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
+.whatsapp-btn:hover {
+    background-color: #1EBE5A;
+}
 
-        .whatsapp-btn {
-            background-color: #25D366;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 10px;
-            font-size: 17px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-        }
+/* Responsivo */
+@media (max-width: 600px) {
+    #catalogContainer {
+        grid-template-columns: 1fr;
+        max-width: 100%; /* Asegurar que en móviles use todo el ancho */
+    }
 
-        .whatsapp-btn:hover {
-            background-color: #1EBE5A;
-        }
+    #cartModalContent,
+    .product-modal-content {
+        width: 90%;
+        max-width: 90%;
+        margin: 20px auto;
+        max-height: 70%; /* Hacer el modal más pequeño en dispositivos móviles */
+    }
 
-        @media (max-width: 600px) {
-            #catalogContainer {
-                grid-template-columns: 1fr;
-                max-width: 100%; /* Asegurar que en móviles use todo el ancho */
-            }
+    .cart-image {
+        width: 70px;
+        height: 70px;
+    }
 
-            #cartModalContent, .product-modal-content {
-                width: 90%;
-                max-width: 90%;
-                margin: 20px auto;
-                max-height: 70%; /* Hacer el modal más pequeño en dispositivos móviles */
-            }
+    #cartButton,
+    #whatsappButton {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
 
-            .cart-image {
-                width: 70px;
-                height: 70px;
-            }
+    .product-modal-content img {
+        max-width: 200px; /* Hacer la imagen más pequeña en dispositivos móviles */
+    }
+}
 
-            #cartButton, #whatsappButton {
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-
-            .product-modal-content img {
-                max-width: 200px; /* Hacer la imagen más pequeña en dispositivos móviles */
-            }
-        }
     </style>
 </head>
 <body>
@@ -480,6 +496,7 @@
         <div id="cartModalContent">
             <h2>Carrito de Compras</h2>
             <div id="cartItems"></div>
+            <p id="discountInfo"></p> <!-- Mostrar información del descuento -->
             <p id="totalPrice">Total: S/ 0.00</p>
             <button class="whatsapp-btn" onclick="window.sendOrderViaWhatsApp()">Pedir por WhatsApp</button>
             <button class="remove-btn" onclick="window.toggleCartModal()">Cerrar</button>
@@ -513,7 +530,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <script>
-              const firebaseConfig = {
+           const firebaseConfig = {
   apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
   authDomain: "machka-8432e.firebaseapp.com",
   projectId: "machka-8432e",
@@ -528,12 +545,22 @@
         const auth = firebase.auth();
         const firestore = firebase.firestore();
 
+        let products = [];
+        let cart = [];
+        let userEmail = '';
+        let userName = '';
+
         // Verificar el estado de autenticación
         auth.onAuthStateChanged(user => {
             if (user) {
                 // Usuario ha iniciado sesión
                 const userNameElement = document.getElementById('user-name');
                 userNameElement.textContent = user.displayName;
+                userEmail = user.email;
+                userName = user.displayName;
+
+                // Cargar el carrito del usuario
+                loadCartFromFirestore();
 
                 // Cargar el catálogo
                 loadCatalog();
@@ -544,8 +571,29 @@
             }
         });
 
-        let products = [];
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        async function loadCartFromFirestore() {
+            try {
+                const cartDoc = await firestore.collection('carts').doc(userEmail).get();
+                if (cartDoc.exists) {
+                    cart = cartDoc.data().items;
+                    updateCart();
+                } else {
+                    cart = [];
+                }
+            } catch (error) {
+                console.error("Error al cargar el carrito desde Firestore:", error);
+            }
+        }
+
+        async function saveCartToFirestore() {
+            try {
+                await firestore.collection('carts').doc(userEmail).set({
+                    items: cart
+                });
+            } catch (error) {
+                console.error("Error al guardar el carrito en Firestore:", error);
+            }
+        }
 
         async function loadCatalog() {
             const catalogContainer = document.getElementById('catalogContainer');
@@ -628,12 +676,14 @@
             }
 
             updateCart();
+            saveCartToFirestore();
         }
 
         function updateCart() {
             const cartItemsContainer = document.getElementById('cartItems');
             const totalPriceElement = document.getElementById('totalPrice');
             const cartButtonNotification = document.getElementById('cartButtonNotification');
+            const discountInfo = document.getElementById('discountInfo');
 
             cartItemsContainer.innerHTML = '';
             let total = 0;
@@ -661,7 +711,17 @@
                 cartItemsContainer.appendChild(cartItem);
             });
 
-            totalPriceElement.textContent = `Total: S/ ${total.toFixed(2)}`;
+            // Aplicar descuento si hay más de 2 productos
+            let discount = 0;
+            if (totalQuantity > 2) {
+                discount = total * 0.10;
+                discountInfo.textContent = `¡Descuento del 10% aplicado!`;
+            } else {
+                discountInfo.textContent = '';
+            }
+
+            const totalWithDiscount = total - discount;
+            totalPriceElement.textContent = `Total: S/ ${totalWithDiscount.toFixed(2)}`;
             cartButtonNotification.textContent = totalQuantity;
             cartButtonNotification.style.display = totalQuantity > 0 ? 'flex' : 'none';
 
@@ -676,12 +736,14 @@
                 removeFromCart(index);
             } else {
                 updateCart();
+                saveCartToFirestore();
             }
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCart();
+            saveCartToFirestore();
         }
 
         function toggleCartModal() {
@@ -750,12 +812,30 @@
                 return;
             }
 
-            let message = "Hola, me gustaría hacer el siguiente pedido:\n";
+            let message = `Hola, soy ${userName}, me gustaría hacer el siguiente pedido:\n`;
             cart.forEach((item) => {
                 message += `\n- ${item.name} (Cantidad: ${item.quantity})`;
             });
-            const totalPrice = document.getElementById('totalPrice').textContent;
-            message += `\n\n${totalPrice}`;
+
+            let total = 0;
+            let totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+            cart.forEach((item) => {
+                total += item.price * item.quantity;
+            });
+
+            // Aplicar descuento si corresponde
+            let discount = 0;
+            if (totalQuantity > 2) {
+                discount = total * 0.10;
+            }
+
+            const totalWithDiscount = total - discount;
+
+            message += `\n\nTotal: S/ ${totalWithDiscount.toFixed(2)}`;
+            if (discount > 0) {
+                message += ` (Incluye un descuento del 10%)`;
+            }
 
             const whatsappUrl = `https://api.whatsapp.com/send?phone=51947424087&text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
@@ -780,8 +860,6 @@
         });
 
         window.addEventListener('load', () => {
-            cart = JSON.parse(localStorage.getItem('cart')) || [];
-            updateCart();
             document.getElementById('searchInput').addEventListener('input', handleSearch);
         });
 
