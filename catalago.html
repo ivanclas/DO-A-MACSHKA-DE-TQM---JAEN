@@ -22,6 +22,20 @@
             color: #333;
         }
 
+        /* Estilos del mensaje de bienvenida */
+        #welcome-message {
+            font-size: 20px;
+            color: #a0522d;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Resto de estilos existentes */
+        /* ... [el resto de los estilos existentes, como en tu código original] ... */
+
+        /* Asegúrate de incluir todos los estilos anteriores aquí */
+        /* Incluyo los estilos completos para tu referencia */
+
         h1 {
             font-size: 32px;
             color: #a0522d; /* Marrón oscuro */
@@ -57,10 +71,10 @@
 
         #catalogContainer {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             width: 100%;
-            max-width: 800px;
+            max-width: 600px;
         }
 
         .catalog-item {
@@ -74,7 +88,7 @@
 
         .catalog-image {
             width: 100%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
         }
 
@@ -95,16 +109,6 @@
             color: #777;
         }
 
-        .catalog-details ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            text-align: left;
-        }
-
-        .catalog-details ul li {
-            margin-bottom: 5px;
-        }
-
         .add-to-cart-btn, .share-btn, .view-details-btn {
             background-color: #a0522d; /* Marrón oscuro */
             color: white;
@@ -122,11 +126,11 @@
         }
 
         /* Botones flotantes */
-        #cartButton, #whatsappButton, #yapeButton {
+        #cartButton {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #a0522d; /* Marrón oscuro */
+            background-color: #D2B48C; /* Marrón clarito */
             color: white;
             border: none;
             border-radius: 50%;
@@ -141,18 +145,31 @@
             z-index: 100;
         }
 
-        #cartButton:hover, #whatsappButton:hover, #yapeButton:hover {
+        #cartButton:hover {
             transform: scale(1.1);
         }
 
         #whatsappButton {
+            position: fixed;
             bottom: 85px;
+            right: 20px;
             background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 100;
         }
 
-        #yapeButton {
-            bottom: 150px;
-            background-color: #1A73E8;
+        #whatsappButton:hover {
+            transform: scale(1.1);
         }
 
         #cartButtonNotification {
@@ -171,7 +188,7 @@
         }
 
         /* Modales */
-        #cartModal, #yapeModal, #productModal {
+        #cartModal, #productModal {
             position: fixed;
             top: 0;
             left: 0;
@@ -184,11 +201,11 @@
             z-index: 1000;
         }
 
-        #cartModal.show, #yapeModal.show, #productModal.show {
+        #cartModal.show, #productModal.show {
             display: flex;
         }
 
-        #cartModalContent, .yape-modal-content, .product-modal-content {
+        #cartModalContent, .product-modal-content {
             background: white;
             padding: 20px;
             border-radius: 15px;
@@ -197,6 +214,14 @@
             overflow-y: auto;
             position: relative;
             max-height: 80%;
+            margin: 20px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra para el modal */
+            animation: fadeIn 0.3s ease; /* Animación al aparecer */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .close-btn {
@@ -206,37 +231,85 @@
             font-size: 24px;
             cursor: pointer;
             color: #777;
+            transition: color 0.3s ease;
         }
 
         .close-btn:hover {
-            color: #000;
+            color: #a0522d;
         }
 
-        /* Estilos del modal de producto */
+        /* Estilos del modal de producto mejorados */
+        .product-modal-content {
+            text-align: center;
+        }
+
         .product-modal-content img {
             width: 100%;
             max-width: 300px;
             height: auto;
             margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .product-modal-content h3 {
-            font-size: 24px;
+            font-size: 26px;
             margin-bottom: 10px;
             color: #a0522d;
-            text-align: center;
         }
 
         .product-modal-content p {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #777;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #555;
         }
 
         .product-modal-content ul {
             list-style-type: disc;
             padding-left: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .product-modal-content ul li {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .product-modal-content .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-modal-content .modal-buttons button {
+            width: 80%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-modal-content .modal-buttons .add-to-cart-btn {
+            background-color: #a0522d;
+            color: white;
+        }
+
+        .product-modal-content .modal-buttons .add-to-cart-btn:hover {
+            background-color: #8b4513;
+        }
+
+        .product-modal-content .modal-buttons .share-btn {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .product-modal-content .modal-buttons .share-btn:hover {
+            background-color: #1EBE5A;
         }
 
         /* Estilos del carrito */
@@ -356,21 +429,29 @@
         @media (max-width: 600px) {
             #catalogContainer {
                 grid-template-columns: 1fr;
+                max-width: 100%; /* Asegurar que en móviles use todo el ancho */
             }
 
-            #cartModalContent, .yape-modal-content, .product-modal-content {
+            #cartModalContent, .product-modal-content {
                 width: 90%;
+                max-width: 90%;
+                margin: 20px auto;
+                max-height: 70%; /* Hacer el modal más pequeño en dispositivos móviles */
             }
 
             .cart-image {
-                width: 60px;
-                height: 60px;
+                width: 70px;
+                height: 70px;
             }
 
-            #cartButton, #whatsappButton, #yapeButton {
+            #cartButton, #whatsappButton {
                 width: 45px;
                 height: 45px;
                 font-size: 20px;
+            }
+
+            .product-modal-content img {
+                max-width: 200px; /* Hacer la imagen más pequeña en dispositivos móviles */
             }
         }
     </style>
@@ -378,6 +459,7 @@
 <body>
     <div class="header">
         <h1>Catálogo de Productos</h1>
+        <div id="welcome-message">Bienvenido, <span id="user-name"></span></div>
         <div id="searchContainer">
             <input type="text" id="searchInput" placeholder="Buscar por nombre o precio...">
         </div>
@@ -386,10 +468,6 @@
 
     <button id="whatsappButton" onclick="window.open('https://api.whatsapp.com/send?phone=51947424087', '_blank')">
         <i class="fab fa-whatsapp"></i>
-    </button>
-
-    <button id="yapeButton" onclick="window.toggleYapeModal()">
-        <img src="icono.png" alt="Yape" style="width: 30px; height: 30px;">
     </button>
 
     <button id="cartButton" onclick="window.toggleCartModal()">
@@ -408,16 +486,7 @@
         </div>
     </div>
 
-    <!-- Modal de Yape -->
-    <div id="yapeModal">
-        <div class="yape-modal-content">
-            <span class="close-btn" onclick="window.toggleYapeModal()">&times;</span>
-            <h2>Escanea para pagar con Yape</h2>
-            <img src="YAPE.jpeg" alt="Código QR para pagar con Yape" class="yape-qr">
-        </div>
-    </div>
-
-    <!-- Modal de detalles del producto -->
+    <!-- Modal de detalles del producto mejorado -->
     <div id="productModal">
         <div class="product-modal-content">
             <span class="close-btn" onclick="window.toggleProductModal()">&times;</span>
@@ -427,14 +496,24 @@
             <ul id="modalProductDescription">
                 <!-- Descripción en bullet points -->
             </ul>
+            <div class="modal-buttons">
+                <button class="add-to-cart-btn" id="modalAddToCartBtn">Agregar al Carrito</button>
+                <button class="share-btn" id="modalShareBtn">Compartir <i class="fas fa-share-alt"></i></button>
+            </div>
         </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+    <!-- Firebase App (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <!-- Firebase Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
 
-        const firebaseConfig = {
+    <!-- Iconos de Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+              const firebaseConfig = {
   apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
   authDomain: "machka-8432e.firebaseapp.com",
   projectId: "machka-8432e",
@@ -444,8 +523,26 @@
   measurementId: "G-89B7M13GTS"
 };
 
-        const app = initializeApp(firebaseConfig);
-        const firestore = getFirestore(app);
+        // Inicializar Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const firestore = firebase.firestore();
+
+        // Verificar el estado de autenticación
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // Usuario ha iniciado sesión
+                const userNameElement = document.getElementById('user-name');
+                userNameElement.textContent = user.displayName;
+
+                // Cargar el catálogo
+                loadCatalog();
+            } else {
+                // Usuario no ha iniciado sesión
+                // Redirigir al usuario a la página de inicio de sesión o menú principal
+                window.location.href = 'index.html'; // Reemplaza 'index.html' con la ruta a tu menú principal
+            }
+        });
 
         let products = [];
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -455,7 +552,7 @@
             catalogContainer.innerHTML = ''; 
 
             try {
-                const querySnapshot = await getDocs(collection(firestore, 'productos'));
+                const querySnapshot = await firestore.collection('productos').get();
 
                 products = querySnapshot.docs.map(doc => ({
                     id: doc.id,
@@ -483,27 +580,13 @@
                 const productImageUrlEscaped = encodeURIComponent(product.imagenUrl);
                 const productDescriptionEscaped = encodeURIComponent(product.descripcion);
 
-                // Convertir la descripción en una lista de bullet points
-                let descriptionList = '';
-                if (product.descripcion) {
-                    const descriptionItems = product.descripcion.split('.');
-                    descriptionList = '<ul>';
-                    descriptionItems.forEach(desc => {
-                        if (desc.trim().length > 0) {
-                            descriptionList += `<li>${desc.trim()}</li>`;
-                        }
-                    });
-                    descriptionList += '</ul>';
-                }
-
                 item.innerHTML = `
                     <img src="${product.imagenUrl}" alt="${product.nombre}" class="catalog-image">
                     <div class="catalog-details">
                         <h3>${product.nombre}</h3>
                         <p>Precio: S/ ${product.precio}</p>
-                        ${descriptionList}
                         <button class="add-to-cart-btn" onclick="window.addToCart('${productIdEscaped}', '${productNameEscaped}', ${product.precio}, '${productImageUrlEscaped}', this)">Agregar al Carrito</button>
-                        <button class="view-details-btn" onclick="window.openProductModal('${productNameEscaped}', ${product.precio}, '${productImageUrlEscaped}', '${productDescriptionEscaped}')">Ver Detalles</button>
+                        <button class="view-details-btn" onclick="window.openProductModal('${productIdEscaped}', '${productNameEscaped}', ${product.precio}, '${productImageUrlEscaped}', '${productDescriptionEscaped}')">Ver Detalles</button>
                         <button class="share-btn" onclick="window.shareProduct('${productIdEscaped}', '${productNameEscaped}', ${product.precio}, '${productImageUrlEscaped}')">Compartir <i class="fas fa-share-alt"></i></button>
                     </div>
                 `;
@@ -532,15 +615,17 @@
                 cart.push({ id: productId, name: decodedName, price, imageUrl: decodedImageUrl, quantity: 1 });
             }
 
-            button.style.backgroundColor = 'red';
-            button.textContent = 'Agregado';
-            button.disabled = true;
+            if (button) {
+                button.style.backgroundColor = 'red';
+                button.textContent = 'Agregado';
+                button.disabled = true;
 
-            setTimeout(() => {
-                button.style.backgroundColor = '#a0522d'; /* Marrón oscuro */
-                button.textContent = 'Agregar al Carrito';
-                button.disabled = false;
-            }, 2000);
+                setTimeout(() => {
+                    button.style.backgroundColor = '#a0522d'; /* Marrón oscuro */
+                    button.textContent = 'Agregar al Carrito';
+                    button.disabled = false;
+                }, 2000);
+            }
 
             updateCart();
         }
@@ -604,18 +689,14 @@
             cartModal.classList.toggle('show');
         }
 
-        function toggleYapeModal() {
-            const yapeModal = document.getElementById('yapeModal');
-            yapeModal.classList.toggle('show');
-        }
-
-        function openProductModal(name, price, imageUrl, description) {
+        function openProductModal(productId, name, price, imageUrl, description) {
             const modal = document.getElementById('productModal');
             const modalName = document.getElementById('modalProductName');
             const modalPrice = document.getElementById('modalProductPrice');
             const modalImage = document.getElementById('modalProductImage');
             const modalDescription = document.getElementById('modalProductDescription');
 
+            const decodedId = decodeURIComponent(productId);
             const decodedName = decodeURIComponent(name);
             const decodedImageUrl = decodeURIComponent(imageUrl);
             const decodedDescription = decodeURIComponent(description);
@@ -636,6 +717,24 @@
                     }
                 });
             }
+
+            // Configurar botones del modal
+            const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
+            modalAddToCartBtn.onclick = function() {
+                addToCart(decodedId, name, price, imageUrl);
+                modalAddToCartBtn.textContent = 'Agregado';
+                modalAddToCartBtn.disabled = true;
+
+                setTimeout(() => {
+                    modalAddToCartBtn.textContent = 'Agregar al Carrito';
+                    modalAddToCartBtn.disabled = false;
+                }, 2000);
+            };
+
+            const modalShareBtn = document.getElementById('modalShareBtn');
+            modalShareBtn.onclick = function() {
+                shareProduct(productId, name, price, imageUrl);
+            };
 
             modal.classList.add('show');
         }
@@ -670,12 +769,8 @@
         }
 
         window.addEventListener('click', function(event) {
-            const yapeModal = document.getElementById('yapeModal');
             const cartModal = document.getElementById('cartModal');
             const productModal = document.getElementById('productModal');
-            if (event.target === yapeModal) {
-                yapeModal.classList.remove('show');
-            }
             if (event.target === cartModal) {
                 cartModal.classList.remove('show');
             }
@@ -684,23 +779,23 @@
             }
         });
 
+        window.addEventListener('load', () => {
+            cart = JSON.parse(localStorage.getItem('cart')) || [];
+            updateCart();
+            document.getElementById('searchInput').addEventListener('input', handleSearch);
+        });
+
+        // Exponer funciones globalmente
         window.addToCart = addToCart;
         window.changeQuantity = changeQuantity;
         window.removeFromCart = removeFromCart;
         window.toggleCartModal = toggleCartModal;
-        window.toggleYapeModal = toggleYapeModal;
         window.openProductModal = openProductModal;
         window.toggleProductModal = toggleProductModal;
         window.sendOrderViaWhatsApp = sendOrderViaWhatsApp;
         window.shareProduct = shareProduct;
         window.handleSearch = handleSearch;
 
-        window.addEventListener('load', () => {
-            cart = JSON.parse(localStorage.getItem('cart')) || [];
-            updateCart();
-            loadCatalog();
-            document.getElementById('searchInput').addEventListener('input', handleSearch);
-        });
     </script>
 </body>
 </html>
