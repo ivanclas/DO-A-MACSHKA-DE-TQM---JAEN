@@ -27,6 +27,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%; /* Asegurar que ocupe todo el ancho */
             z-index: 100; /* Asegurar que esté por encima de otros elementos */
         }
 
@@ -82,6 +83,8 @@
             max-width: 600px;
             padding: 20px; /* Añadido padding para separar del borde */
             margin-top: 20px; /* Añadido margen superior para separar del header */
+            margin-left: auto; /* Centramos el catálogo */
+            margin-right: auto;
         }
 
         /* Elementos del catálogo */
@@ -453,6 +456,7 @@
             #catalogContainer {
                 grid-template-columns: 1fr;
                 max-width: 100%; /* Asegurar que en móviles use todo el ancho */
+                padding: 10px; /* Reducir padding en móviles */
             }
 
             #cartModalContent,
@@ -460,7 +464,7 @@
                 width: 90%;
                 max-width: 90%;
                 margin: 20px auto;
-                max-height: 70%; /* Hacer el modal más pequeño en dispositivos móviles */
+                max-height: 60%; /* Hacer el modal más pequeño en dispositivos móviles */
             }
 
             .cart-image {
@@ -476,7 +480,7 @@
             }
 
             .product-modal-content img {
-                max-width: 200px; /* Hacer la imagen más pequeña en dispositivos móviles */
+                max-width: 150px; /* Hacer la imagen más pequeña en dispositivos móviles */
             }
 
             .header {
@@ -552,7 +556,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <script>
-              const firebaseConfig = {
+         const firebaseConfig = {
   apiKey: "AIzaSyBP3bJR_DA6EuV66Sze0vHLfo8QKNJ5_IQ",
   authDomain: "machka-8432e.firebaseapp.com",
   projectId: "machka-8432e",
